@@ -24,8 +24,6 @@ export const saveTask: Handler = async function (req: Request, res: Response) {
 export const getTask: Handler = async function (req: Request, res: Response) {
   const { id } = req.params;
 
-  console.log('aqui');
-
   const task: Task = await getConnection()
     .get('tasks')
     .find((m) => m?.id === id)
@@ -40,7 +38,7 @@ export const deleteTask: Handler = async function (req: Request, res: Response) 
     .find((m) => m?.id === id)
     .value();
   if (task) {
-    const removedTask = await getConnection().get('tasks').remove({ id }).write();
+    const removedTask = (await getConnection().get('tasks').remove({ id }).write())?.[0];
     return res.status(200).json(removedTask);
   } else {
     return res.status(400).json({ message: 'Task not found' });
