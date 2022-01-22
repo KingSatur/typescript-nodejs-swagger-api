@@ -1,0 +1,29 @@
+GET http://localhost:3000/task/
+
+###
+
+POST http://localhost:3000/task/
+Content-Type: application/json
+
+{
+    "name":"Create website",
+    "description":"Using swagger"
+}
+
+###
+GET http://localhost:3000/task/iq6TIVnCvlk52E5x0OuYH
+
+###
+GET http://localhost:3000/task/count/
+
+###
+DELETE http://localhost:3000/task/1G4Hfq_Gp4fCtgHE6BE7q2
+
+###
+PUT  http://localhost:3000/task/AXiGCsHNuizxLPd3whTfT
+Content-Type: application/json
+
+{
+    "name":"Create website 12122",
+    "description":"Using swagger"
+}
